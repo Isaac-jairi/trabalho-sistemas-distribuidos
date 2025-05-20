@@ -1,6 +1,12 @@
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 export default function Home() {
   return (
@@ -8,18 +14,24 @@ export default function Home() {
       <div className="w-full max-w-3xl">
         <Card className="border-none shadow-lg">
           <CardHeader className="text-center">
-            <CardTitle className="text-3xl font-semibold text-slate-800">Sistema de Cobrança</CardTitle>
+            <CardTitle className="text-3xl font-semibold text-slate-800">
+              Sistema de Gerador de Boletos
+            </CardTitle>
             <CardDescription className="text-slate-500">
-              Gerenciamento de cobranças e títulos
+              Gerador de boletos em PDF
             </CardDescription>
           </CardHeader>
           <CardContent className="flex flex-col items-center py-8">
             <p className="mb-8 text-center text-slate-600 max-w-md">
-              Bem-vindo ao sistema de gerenciamento de cobranças. Utilize o formulário para registrar novos títulos ou gerenciar suas cobranças.
+              Bem-vindo ao sistema de geração de boletos. Utilize o formulário
+              para registrar novos boletos e recebe-lo em PDF.
             </p>
             <Link href="/cobranca/nova" passHref>
-              <Button size="lg" className="px-8 py-6 text-lg font-medium shadow-md transition-all hover:shadow-lg">
-                Nova Cobrança
+              <Button
+                size="lg"
+                className="px-8 py-6 text-lg font-medium shadow-md transition-all hover:shadow-lg"
+              >
+                Novo Boleto
               </Button>
             </Link>
           </CardContent>
