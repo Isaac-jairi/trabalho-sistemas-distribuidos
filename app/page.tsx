@@ -26,14 +26,25 @@ export default function Home() {
               Bem-vindo ao sistema de geração de boletos. Utilize o formulário
               para registrar novos boletos e recebe-lo em PDF.
             </p>
-            <Link href="/cobranca/nova" passHref>
-              <Button
-                size="lg"
-                className="px-8 py-6 text-lg font-medium shadow-md transition-all hover:shadow-lg"
-              >
-                Novo Boleto
-              </Button>
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link href="/cobranca/nova" passHref>
+                <Button
+                  size="lg"
+                  className="px-8 py-6 text-lg font-medium shadow-md transition-all hover:shadow-lg"
+                >
+                  Novo Boleto
+                </Button>
+              </Link>
+              <Link href="/cobranca/consultar" passHref>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="px-8 py-6 text-lg font-medium shadow-md transition-all hover:shadow-lg"
+                >
+                  Consultar Boleto
+                </Button>
+              </Link>
+            </div>
           </CardContent>
         </Card>
       </div>
