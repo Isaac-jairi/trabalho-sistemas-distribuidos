@@ -58,7 +58,8 @@ export default function ConsultarBoleto() {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to fetch boleto");
+        const responseText = await response.json();
+        throw new Error(responseText.message || "Failed to fetch boleto");
       }
 
       // Get the PDF blob from the response

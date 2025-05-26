@@ -85,7 +85,8 @@ export default function CobrancaForm() {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to submit form");
+        const responseText = await response.json();
+        throw new Error(responseText.error || "Failed to submit form");
       }
 
       // Get the PDF blob from the response
@@ -111,9 +112,9 @@ export default function CobrancaForm() {
 
       // Redirect to homepage or list page
       router.push("/");
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error submitting form:", error);
-      toast.error("Erro ao gerar boleto. Tente novamente.");
+      toast.error(error.message);
     } finally {
       setIsSubmitting(false);
     }

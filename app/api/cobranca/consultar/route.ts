@@ -15,7 +15,8 @@ export async function POST(request: Request) {
     });
 
     if (!response.ok) {
-      throw new Error("Failed to fetch boleto");
+      const responseText = await response.json();
+      throw new Error(responseText.message || "Failed to fetch boleto");
     }
 
     // Get the PDF blob from the response
@@ -28,10 +29,10 @@ export async function POST(request: Request) {
         "Content-Disposition": `attachment; filename="boleto-${numeroBoleto}.pdf"`,
       },
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error in API route:", error);
     return NextResponse.json(
-      { error: "Failed to process request" },
+      { error: error.error || "Failed to process request" },
       { status: 500 }
     );
   }
